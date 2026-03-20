@@ -48,6 +48,12 @@
   100% { transform: translateX(-50%); }
 }
 
+@keyframes starPop {
+  0% { opacity: 0; transform: scale(0); }
+  80% { transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
 /* ── Base layer ── */
 @layer base {
   html {
