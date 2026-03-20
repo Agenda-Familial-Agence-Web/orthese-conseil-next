@@ -12,9 +12,9 @@ const sections = [
     ),
     title: "Approche humaine",
     text: [
-      "Chez Orth\u00e8se Conseil, chaque patient est unique. Nous prenons le temps d\u2019\u00e9couter attentivement vos besoins, de comprendre votre condition et vos objectifs avant de proposer un plan de traitement.",
-      "Notre \u00e9quipe croit fermement que la relation de confiance entre le patient et le professionnel est essentielle \u00e0 la r\u00e9ussite du traitement. C\u2019est pourquoi nous accordons une importance particuli\u00e8re \u00e0 la communication et \u00e0 l\u2019\u00e9ducation de nos patients.",
-      "Nous vous expliquons chaque \u00e9tape du processus, r\u00e9pondons \u00e0 toutes vos questions et nous assurons que vous vous sentez \u00e0 l\u2019aise et en confiance tout au long de votre parcours de soins.",
+      "Chez Orthèse Conseil, chaque patient est unique. Nous prenons le temps d’écouter attentivement vos besoins, de comprendre votre condition et vos objectifs avant de proposer un plan de traitement.",
+      "Notre équipe croit fermement que la relation de confiance entre le patient et le professionnel est essentielle à la réussite du traitement. C’est pourquoi nous accordons une importance particulière à la communication et à l’éducation de nos patients.",
+      "Nous vous expliquons chaque étape du processus, répondons à toutes vos questions et nous assurons que vous vous sentez à l’aise et en confiance tout au long de votre parcours de soins.",
     ],
   },
   {
@@ -26,9 +26,9 @@ const sections = [
     ),
     title: "Fabrication sur place",
     text: [
-      "Toutes nos orth\u00e8ses sont con\u00e7ues et fabriqu\u00e9es directement dans notre atelier \u00e0 Chambly. Cette approche nous permet de maintenir un contr\u00f4le de qualit\u00e9 rigoureux \u00e0 chaque \u00e9tape de la production.",
-      "La fabrication sur place offre un avantage consid\u00e9rable : des d\u00e9lais de livraison r\u00e9duits et la possibilit\u00e9 d\u2019effectuer des ajustements rapides si n\u00e9cessaire. Vous n\u2019avez pas \u00e0 attendre des semaines pour recevoir vos orth\u00e8ses.",
-      "Notre atelier est \u00e9quip\u00e9 des derni\u00e8res technologies de fabrication, nous permettant de cr\u00e9er des orth\u00e8ses pr\u00e9cises et durables, parfaitement adapt\u00e9es \u00e0 votre anatomie et \u00e0 vos besoins.",
+      "Toutes nos orthèses sont conçues et fabriquées directement dans notre atelier à Chambly. Cette approche nous permet de maintenir un contrôle de qualité rigoureux à chaque étape de la production.",
+      "La fabrication sur place offre un avantage considérable : des délais de livraison réduits et la possibilité d’effectuer des ajustements rapides si nécessaire. Vous n’avez pas à attendre des semaines pour recevoir vos orthèses.",
+      "Notre atelier est équipé des dernières technologies de fabrication, nous permettant de créer des orthèses précises et durables, parfaitement adaptées à votre anatomie et à vos besoins.",
     ],
   },
   {
@@ -37,11 +37,11 @@ const sections = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "Suivi personnalis\u00e9",
+    title: "Suivi personnalisé",
     text: [
-      "Notre engagement ne s\u2019arr\u00eate pas \u00e0 la livraison de vos orth\u00e8ses. Nous assurons un suivi complet pour garantir votre confort et l\u2019efficacit\u00e9 optimale de votre traitement.",
-      "Des rendez-vous de suivi r\u00e9guliers vous sont propos\u00e9s pour v\u00e9rifier l\u2019ajustement de vos orth\u00e8ses, \u00e9valuer votre progression et apporter les modifications n\u00e9cessaires \u00e0 votre \u00e9volution.",
-      "Si vous ressentez le moindre inconfort ou avez des questions entre vos rendez-vous, notre \u00e9quipe est toujours disponible pour vous aider. Votre satisfaction et votre bien-\u00eatre sont notre priorit\u00e9 absolue.",
+      "Notre engagement ne s’arrête pas à la livraison de vos orthèses. Nous assurons un suivi complet pour garantir votre confort et l’efficacité optimale de votre traitement.",
+      "Des rendez-vous de suivi réguliers vous sont proposés pour vérifier l’ajustement de vos orthèses, évaluer votre progression et apporter les modifications nécessaires à votre évolution.",
+      "Si vous ressentez le moindre inconfort ou avez des questions entre vos rendez-vous, notre équipe est toujours disponible pour vous aider. Votre satisfaction et votre bien-être sont notre priorité absolue.",
     ],
   },
 ];
@@ -61,7 +61,7 @@ export default function NotreApprocheClient() {
               Notre approche
             </h1>
             <p className="mt-6 text-xl text-white/60 max-w-2xl mx-auto">
-              Une philosophie de soins centr\u00e9e sur le patient, la qualit\u00e9 et l&apos;accompagnement.
+              Une philosophie de soins centrée sur le patient, la qualité et l&apos;accompagnement.
             </p>
           </ScrollReveal>
         </div>

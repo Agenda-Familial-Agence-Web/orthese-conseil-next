@@ -7,14 +7,14 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { team } from "@/data/team";
 
-const member = team[0]; // \u00c9ric Drasse
+const member = team[0]; // Éric Drasse
 
 const experienceTimeline = [
-  { year: "1998", text: "D\u00e9but de carri\u00e8re en orth\u00e9sie" },
-  { year: "2005", text: "Sp\u00e9cialisation en \u00e9valuation biom\u00e9canique" },
-  { year: "2011", text: "Fondation d\u2019Orth\u00e8se Conseil \u00e0 Chambly" },
-  { year: "2018", text: "Ouverture du point de service \u00e0 Saint-C\u00e9saire" },
-  { year: "2024", text: "Int\u00e9gration de nouvelles technologies de fabrication" },
+  { year: "1998", text: "Début de carrière en orthésie" },
+  { year: "2005", text: "Spécialisation en évaluation biomécanique" },
+  { year: "2011", text: "Fondation d’Orthèse Conseil à Chambly" },
+  { year: "2018", text: "Ouverture du point de service à Saint-Césaire" },
+  { year: "2024", text: "Intégration de nouvelles technologies de fabrication" },
 ];
 
 export default function EricDrasseProfile() {
@@ -95,21 +95,21 @@ export default function EricDrasseProfile() {
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-8">
-              \u00c0 propos d&apos;\u00c9ric
+              À propos d&apos;Éric
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <div className="prose prose-lg text-text-secondary leading-relaxed space-y-6">
               <p>{member.bio}</p>
               <p>
-                Fort de plus de 25 ans d&apos;exp\u00e9rience, \u00c9ric a d\u00e9velopp\u00e9 une expertise approfondie dans
-                la conception et la fabrication d&apos;orth\u00e8ses sur mesure. Son approche m\u00e9ticuleuse et son souci
-                du d\u00e9tail garantissent des r\u00e9sultats optimaux pour chaque patient.
+                Fort de plus de 25 ans d&apos;expérience, Éric a développé une expertise approfondie dans
+                la conception et la fabrication d&apos;orthèses sur mesure. Son approche méticuleuse et son souci
+                du détail garantissent des résultats optimaux pour chaque patient.
               </p>
               <p>
-                Passionn\u00e9 par l&apos;innovation, il int\u00e8gre continuellement les derni\u00e8res technologies et
-                techniques dans sa pratique, tout en maintenant l&apos;approche humaine et personnalis\u00e9e qui fait
-                la r\u00e9putation d&apos;Orth\u00e8se Conseil.
+                Passionné par l&apos;innovation, il intègre continuellement les dernières technologies et
+                techniques dans sa pratique, tout en maintenant l&apos;approche humaine et personnalisée qui fait
+                la réputation d&apos;Orthèse Conseil.
               </p>
             </div>
           </ScrollReveal>
@@ -147,10 +147,10 @@ export default function EricDrasseProfile() {
         <div className="max-w-2xl mx-auto px-6">
           <ScrollReveal>
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-              Prendre rendez-vous avec \u00c9ric
+              Prendre rendez-vous avec Éric
             </h2>
             <p className="text-white/70 mb-8">
-              Contactez-nous pour planifier votre consultation personnalis\u00e9e.
+              Contactez-nous pour planifier votre consultation personnalisée.
             </p>
             <MagneticButton
               href="/contact"

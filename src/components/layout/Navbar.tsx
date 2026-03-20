@@ -11,7 +11,7 @@ import MobileMenu from "./MobileMenu";
 const navLinks = [
   { label: "Accueil", href: "/" },
   { label: "Services", href: "/nos-services", hasMega: true },
-  { label: "\u00C0 propos", href: "/a-propos-de-nous" },
+  { label: "À propos", href: "/a-propos-de-nous" },
   { label: "Contact", href: "/nous-joindre" },
 ];
 
@@ -46,7 +46,7 @@ export default function Navbar() {
           <Link href="/" className="relative flex-shrink-0">
             <Image
               src="/images/logos/logo.png"
-              alt="Orth\u00E8se Conseil"
+              alt="Orthèse Conseil"
               width={160}
               height={48}
               className="h-10 w-auto"

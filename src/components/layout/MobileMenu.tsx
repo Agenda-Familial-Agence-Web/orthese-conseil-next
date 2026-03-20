@@ -11,7 +11,7 @@ interface MobileMenuProps {
 const links = [
   { label: "Accueil", href: "/" },
   { label: "Services", href: "/nos-services" },
-  { label: "\u00C0 propos", href: "/a-propos-de-nous" },
+  { label: "À propos", href: "/a-propos-de-nous" },
   { label: "Contact", href: "/nous-joindre" },
   { label: "Prendre rendez-vous", href: "/prendre-rendez-vous" },
 ];

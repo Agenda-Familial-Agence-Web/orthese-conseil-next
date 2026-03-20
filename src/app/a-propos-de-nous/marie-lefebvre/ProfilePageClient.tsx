@@ -10,11 +10,11 @@ import { team } from "@/data/team";
 const member = team[1]; // Marie Lefebvre
 
 const experienceTimeline = [
-  { year: "2003", text: "D\u00e9but de pratique en massoth\u00e9rapie" },
-  { year: "2006", text: "Formation compl\u00e9mentaire en orth\u00e9sie" },
-  { year: "2010", text: "Sp\u00e9cialisation en soins p\u00e9diatriques" },
-  { year: "2013", text: "Arriv\u00e9e chez Orth\u00e8se Conseil" },
-  { year: "2020", text: "D\u00e9veloppement du programme de r\u00e9habilitation int\u00e9gr\u00e9" },
+  { year: "2003", text: "Début de pratique en massothérapie" },
+  { year: "2006", text: "Formation complémentaire en orthésie" },
+  { year: "2010", text: "Spécialisation en soins pédiatriques" },
+  { year: "2013", text: "Arrivée chez Orthèse Conseil" },
+  { year: "2020", text: "Développement du programme de réhabilitation intégré" },
 ];
 
 export default function MarieLefebvreProfile() {
@@ -95,22 +95,22 @@ export default function MarieLefebvreProfile() {
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-primary mb-8">
-              \u00c0 propos de Marie
+              À propos de Marie
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <div className="prose prose-lg text-text-secondary leading-relaxed space-y-6">
               <p>{member.bio}</p>
               <p>
-                Gr\u00e2ce \u00e0 sa double formation en orth\u00e9sie et en massoth\u00e9rapie, Marie offre une approche
-                globale et compl\u00e9mentaire du traitement. Elle comprend non seulement les aspects
-                biom\u00e9caniques, mais aussi les tensions musculaires et les d\u00e9s\u00e9quilibres qui peuvent
+                Grâce à sa double formation en orthésie et en massothérapie, Marie offre une approche
+                globale et complémentaire du traitement. Elle comprend non seulement les aspects
+                biomécaniques, mais aussi les tensions musculaires et les déséquilibres qui peuvent
                 affecter la posture et le mouvement.
               </p>
               <p>
-                Particuli\u00e8rement d\u00e9vou\u00e9e aux soins p\u00e9diatriques, Marie accompagne les jeunes patients
-                et leurs familles avec patience et bienveillance, assurant un suivi adapt\u00e9 \u00e0 chaque
-                \u00e9tape de leur croissance.
+                Particulièrement dévouée aux soins pédiatriques, Marie accompagne les jeunes patients
+                et leurs familles avec patience et bienveillance, assurant un suivi adapté à chaque
+                étape de leur croissance.
               </p>
             </div>
           </ScrollReveal>
@@ -151,7 +151,7 @@ export default function MarieLefebvreProfile() {
               Prendre rendez-vous avec Marie
             </h2>
             <p className="text-white/70 mb-8">
-              Contactez-nous pour planifier votre consultation personnalis\u00e9e.
+              Contactez-nous pour planifier votre consultation personnalisée.
             </p>
             <MagneticButton
               href="/contact"

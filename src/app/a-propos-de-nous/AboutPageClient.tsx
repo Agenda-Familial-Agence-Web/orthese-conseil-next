@@ -11,10 +11,10 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { team, teamPhoto } from "@/data/team";
 
 const timeline = [
-  { year: "2011", text: "Fondation d\u2019Orth\u00e8se Conseil par \u00c9ric Drasse" },
-  { year: "2013", text: "Arriv\u00e9e de Marie Lefebvre" },
-  { year: "2015", text: "Expansion des services p\u00e9diatriques" },
-  { year: "2018", text: "Ouverture du point de service \u00e0 Saint-C\u00e9saire" },
+  { year: "2011", text: "Fondation d’Orthèse Conseil par Éric Drasse" },
+  { year: "2013", text: "Arrivée de Marie Lefebvre" },
+  { year: "2015", text: "Expansion des services pédiatriques" },
+  { year: "2018", text: "Ouverture du point de service à Saint-Césaire" },
   { year: "2024", text: "Modernisation de la clinique et nouvelles technologies" },
 ];
 
@@ -26,7 +26,7 @@ const values = [
       </svg>
     ),
     title: "Approche humaine",
-    text: "\u00c0 l\u2019\u00e9coute de vos besoins, nous prenons le temps de bien comprendre votre condition pour offrir un traitement v\u00e9ritablement personnalis\u00e9.",
+    text: "À l’écoute de vos besoins, nous prenons le temps de bien comprendre votre condition pour offrir un traitement véritablement personnalisé.",
   },
   {
     icon: (
@@ -35,7 +35,7 @@ const values = [
       </svg>
     ),
     title: "Fabrication sur place",
-    text: "Nos orth\u00e8ses sont fabriqu\u00e9es directement dans notre atelier, ce qui garantit un contr\u00f4le de qualit\u00e9 rigoureux et des ajustements rapides.",
+    text: "Nos orthèses sont fabriquées directement dans notre atelier, ce qui garantit un contrôle de qualité rigoureux et des ajustements rapides.",
   },
   {
     icon: (
@@ -43,18 +43,18 @@ const values = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "Suivi personnalis\u00e9",
-    text: "Nous assurons un suivi complet apr\u00e8s la livraison de vos orth\u00e8ses pour garantir votre confort et l\u2019efficacit\u00e9 du traitement.",
+    title: "Suivi personnalisé",
+    text: "Nous assurons un suivi complet après la livraison de vos orthèses pour garantir votre confort et l’efficacité du traitement.",
   },
 ];
 
 const clinicPhotos = [
   { src: "/images/clinic/bureau-consultation.jpg", alt: "Bureau de consultation" },
-  { src: "/images/clinic/salle-attente.jpg", alt: "Salle d\u2019attente" },
-  { src: "/images/clinic/clinique-01.jpg", alt: "Clinique Orth\u00e8se Conseil" },
-  { src: "/images/clinic/clinique-02.jpg", alt: "Clinique Orth\u00e8se Conseil" },
-  { src: "/images/clinic/clinique-03.jpg", alt: "Clinique Orth\u00e8se Conseil" },
-  { src: "/images/clinic/clinique-04.jpg", alt: "Clinique Orth\u00e8se Conseil" },
+  { src: "/images/clinic/salle-attente.jpg", alt: "Salle d’attente" },
+  { src: "/images/clinic/clinique-01.jpg", alt: "Clinique Orthèse Conseil" },
+  { src: "/images/clinic/clinique-02.jpg", alt: "Clinique Orthèse Conseil" },
+  { src: "/images/clinic/clinique-03.jpg", alt: "Clinique Orthèse Conseil" },
+  { src: "/images/clinic/clinique-04.jpg", alt: "Clinique Orthèse Conseil" },
 ];
 
 const insurances = ["RAMQ", "SAAQ", "CNESST", "MSSS"];
@@ -74,7 +74,7 @@ export default function AboutPageClient() {
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
           <Image
             src={teamPhoto}
-            alt="\u00c9quipe Orth\u00e8se Conseil"
+            alt="Équipe Orthèse Conseil"
             fill
             className="object-cover"
             sizes="100vw"
@@ -85,7 +85,7 @@ export default function AboutPageClient() {
         <div className="relative z-10 flex items-center justify-center h-full">
           <ScrollReveal>
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-white text-center">
-              \u00c0 propos de nous
+              À propos de nous
             </h1>
           </ScrollReveal>
         </div>
@@ -96,8 +96,8 @@ export default function AboutPageClient() {
         <div className="max-w-4xl mx-auto">
           <SectionHeading
             badge="Notre histoire"
-            title="Depuis 2011, au service de votre bien-\u00eatre"
-            subtitle="Une clinique fond\u00e9e sur la passion de l\u2019orth\u00e9sie et le d\u00e9sir d\u2019aider."
+            title="Depuis 2011, au service de votre bien-être"
+            subtitle="Une clinique fondée sur la passion de l’orthésie et le désir d’aider."
           />
 
           <div className="mt-16 relative">
@@ -145,7 +145,7 @@ export default function AboutPageClient() {
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
             <AnimatedCounter target={40} suffix="+" className="font-heading text-4xl md:text-5xl font-bold" />
-            <p className="mt-2 text-white/70 text-sm">Ann\u00e9es d\u2019exp\u00e9rience combin\u00e9e</p>
+            <p className="mt-2 text-white/70 text-sm">Années d’expérience combinée</p>
           </div>
           <div>
             <AnimatedCounter target={2} className="font-heading text-4xl md:text-5xl font-bold" />
@@ -157,17 +157,17 @@ export default function AboutPageClient() {
           </div>
           <div>
             <AnimatedCounter target={98} suffix="%" className="font-heading text-4xl md:text-5xl font-bold" />
-            <p className="mt-2 text-white/70 text-sm">Recommand\u00e9 sur Facebook</p>
+            <p className="mt-2 text-white/70 text-sm">Recommandé sur Facebook</p>
           </div>
         </div>
       </section>
 
-      {/* L'\u00e9quipe */}
+      {/* L'équipe */}
       <section className="section-padding bg-warm-gray">
         <div className="max-w-5xl mx-auto">
           <SectionHeading
-            badge="L\u2019\u00e9quipe"
-            title="Des professionnels d\u00e9vou\u00e9s"
+            badge="L’équipe"
+            title="Des professionnels dévoués"
             subtitle="Rencontrez les orthésistes qui prennent soin de vous."
           />
           <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -226,8 +226,8 @@ export default function AboutPageClient() {
         <div className="max-w-4xl mx-auto text-center">
           <SectionHeading
             badge="Reconnaissances"
-            title="Agr\u00e9\u00e9 par les organismes publics"
-            subtitle="Nos services sont couverts par les principaux r\u00e9gimes d\u2019assurance."
+            title="Agréé par les organismes publics"
+            subtitle="Nos services sont couverts par les principaux régimes d’assurance."
           />
           <div className="mt-12 flex flex-wrap justify-center gap-6">
             {insurances.map((name) => (

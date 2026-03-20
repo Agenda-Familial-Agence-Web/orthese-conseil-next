@@ -8,14 +8,14 @@ import PhotoGallery from "@/components/ui/PhotoGallery";
 
 const clinicPhotos = [
   { src: "/images/clinic/bureau-consultation.jpg", alt: "Bureau de consultation" },
-  { src: "/images/clinic/salle-attente.jpg", alt: "Salle d\u2019attente" },
-  { src: "/images/clinic/clinique-01.jpg", alt: "Clinique Orth\u00e8se Conseil \u2014 Vue 1" },
-  { src: "/images/clinic/clinique-02.jpg", alt: "Clinique Orth\u00e8se Conseil \u2014 Vue 2" },
-  { src: "/images/clinic/clinique-03.jpg", alt: "Clinique Orth\u00e8se Conseil \u2014 Vue 3" },
-  { src: "/images/clinic/clinique-04.jpg", alt: "Clinique Orth\u00e8se Conseil \u2014 Vue 4" },
-  { src: "/images/clinic/clinique-05.jpg", alt: "Clinique Orth\u00e8se Conseil \u2014 Vue 5" },
-  { src: "/images/clinic/clinique-06.jpg", alt: "Clinique Orth\u00e8se Conseil \u2014 Vue 6" },
-  { src: "/images/clinic/hero-clinic.jpg", alt: "Clinique Orth\u00e8se Conseil \u2014 Ext\u00e9rieur" },
+  { src: "/images/clinic/salle-attente.jpg", alt: "Salle d’attente" },
+  { src: "/images/clinic/clinique-01.jpg", alt: "Clinique Orthèse Conseil — Vue 1" },
+  { src: "/images/clinic/clinique-02.jpg", alt: "Clinique Orthèse Conseil — Vue 2" },
+  { src: "/images/clinic/clinique-03.jpg", alt: "Clinique Orthèse Conseil — Vue 3" },
+  { src: "/images/clinic/clinique-04.jpg", alt: "Clinique Orthèse Conseil — Vue 4" },
+  { src: "/images/clinic/clinique-05.jpg", alt: "Clinique Orthèse Conseil — Vue 5" },
+  { src: "/images/clinic/clinique-06.jpg", alt: "Clinique Orthèse Conseil — Vue 6" },
+  { src: "/images/clinic/hero-clinic.jpg", alt: "Clinique Orthèse Conseil — Extérieur" },
 ];
 
 export default function VisiteCliniqueClient() {
@@ -33,7 +33,7 @@ export default function VisiteCliniqueClient() {
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
           <Image
             src="/images/clinic/hero-clinic.jpg"
-            alt="Clinique Orth\u00e8se Conseil"
+            alt="Clinique Orthèse Conseil"
             fill
             className="object-cover"
             sizes="100vw"
@@ -55,9 +55,9 @@ export default function VisiteCliniqueClient() {
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
             <p className="text-xl text-text-secondary leading-relaxed">
-              Notre clinique situ\u00e9e au 2082 Boulevard Industriel \u00e0 Chambly offre un environnement
-              moderne, lumineux et accueillant. D\u00e9couvrez nos installations con\u00e7ues pour votre
-              confort et votre bien-\u00eatre.
+              Notre clinique située au 2082 Boulevard Industriel à Chambly offre un environnement
+              moderne, lumineux et accueillant. Découvrez nos installations conçues pour votre
+              confort et votre bien-être.
             </p>
           </ScrollReveal>
         </div>
