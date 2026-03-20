@@ -1,0 +1,145 @@
+.footer {
+  background: var(--blue-deep);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 80px 0 0;
+}
+
+.footerInner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 48px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.colTitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.colTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-primary), var(--green-accent));
+  border-radius: 2px;
+}
+
+.about {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--blue-primary);
+  border-bottom: 1.5px solid var(--blue-primary);
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--white);
+  padding-left: 4px;
+}
+
+.link:hover::before {
+  border-color: var(--green-accent);
+}
+
+/* Address */
+.address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.addressItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.addressItem svg {
+  flex-shrink: 0;
+  color: var(--blue-primary);
+  margin-top: 2px;
+}
+
+.addressItem a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.addressItem a:hover {
+  color: var(--white);
+}
+
+/* Bottom Bar */
+.bottomBar {
+  margin-top: 60px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bottomBar p {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footerInner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 60px 0 0;
+  }
+  .footerInner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .bottomBar {
+    margin-top: 40px;
+  }
+}
