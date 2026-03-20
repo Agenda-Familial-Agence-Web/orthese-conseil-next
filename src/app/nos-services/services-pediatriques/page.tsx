@@ -14,7 +14,7 @@ export default function ServicesPediatriquesPage() {
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/services-pediatriques">
-            <Image src="/images/soins-pediatriques.png" alt="Services pédiatriques" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
+            <Image src="/images/Marie, l'orthésiste en consultation avec une cliente.jpg" alt="Services pédiatriques" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
             <h2>Nous avons la santé de vos enfants à cœur</h2>
             <p>Solutions orthopédiques adaptées aux besoins spécifiques des enfants pour accompagner leur croissance et leur développement moteur.</p>
             <p>Nos orthésistes sont formés pour évaluer et traiter les enfants de tous âges, des tout-petits aux adolescents. Nous comprenons l&apos;importance de détecter et corriger les problèmes biomécaniques tôt pour assurer un développement sain.</p>

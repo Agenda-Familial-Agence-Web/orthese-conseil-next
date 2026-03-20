@@ -17,7 +17,7 @@ export default function OrthesesPlantairesPage() {
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/ortheses-plantaires">
-            <Image src="/images/ortheses-plantaires.png" alt="Orthèses plantaires" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
+            <Image src="/images/ortheses_plantaires.png" alt="Orthèses plantaires" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
 
             <h2>Une orthèse, c&apos;est quoi ?</h2>
             <p>Une orthèse c&apos;est un assemblage de plusieurs genres de matériaux avec différentes caractéristiques qui ont pour but de rétablir l&apos;équilibre plantaire en opposant des forces pour optimiser les mouvements naturels de votre corps.</p>

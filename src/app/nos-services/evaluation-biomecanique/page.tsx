@@ -17,7 +17,7 @@ export default function EvaluationBiomecPage() {
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/evaluation-biomecanique">
-            <Image src="/images/evaluation-biomecanique.png" alt="Évaluation biomécanique" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
+            <Image src="/images/Évaluation biomechanique.jpg" alt="Évaluation biomécanique" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
             <h2>À votre arrivée à la clinique, tout commence par une bonne évaluation.</h2>
             <p>L&apos;évaluation biomécanique de chaque patient nous permet de mieux évaluer les diverses solutions qui s&apos;offrent à vous pour qu&apos;à la fin du processus, vous soyez tout simplement bien.</p>
             <p>Afin de bien évaluer les différentes solutions disponibles lors de votre arrivée à la clinique, il est primordial d&apos;effectuer une évaluation biomécanique pour identifier vos inconforts.</p>

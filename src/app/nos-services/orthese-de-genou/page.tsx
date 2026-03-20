@@ -14,7 +14,7 @@ export default function OrtheseGenouPage() {
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/orthese-de-genou">
-            <Image src="/images/orthese-genou.png" alt="Orthèse de genou" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
+            <Image src="/images/orthèse de genou.jpg" alt="Orthèse de genou" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
             <h2>Nous apportons le soutien nécessaire à votre mobilité</h2>
             <p>Appareillage orthopédique personnalisé pour stabiliser votre mobilité, soulager la douleur et favoriser la guérison suite à une blessure ou condition du genou.</p>
             <p>Nos orthèses de genou sont fabriquées sur mesure pour s&apos;adapter parfaitement à votre morphologie et à vos besoins spécifiques.</p>

@@ -14,7 +14,7 @@ export default function AttellePoignetPage() {
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/attelle-poignet">
-            <Image src="/images/attelle-poignet.png" alt="Attelle de poignet" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
+            <Image src="/images/Orthèse du poignet.jpg" alt="Attelle de poignet" width={800} height={400} className={styles.contentImage} style={{ marginBottom: 32 }} />
             <h2>Retrouver votre mobilité</h2>
             <p>Lorsqu&apos;il est affaibli ou blessé, une attelle ou une orthèse peut devenir votre meilleur allié pour favoriser la guérison et retrouver votre mobilité.</p>
             <p>Nos attelles et orthèses du poignet sont sélectionnées et ajustées avec soin par nos orthésistes pour répondre exactement à vos besoins, que ce soit suite à une blessure, une chirurgie ou pour une condition chronique.</p>
