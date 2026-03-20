@@ -4,6 +4,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import CursorFollower from "@/components/ui/CursorFollower";
 import Navbar from "@/components/layout/Navbar";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import PageTransition from "@/components/providers/PageTransition";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
@@ -27,8 +28,10 @@ export default function RootLayout({
         <SmoothScroll>
           <Navbar />
           <ScrollProgress />
-          <main className="relative z-10 bg-white">
-            {children}
+          <main className="relative z-10 bg-white min-h-screen">
+            <PageTransition>
+              {children}
+            </PageTransition>
           </main>
           <Footer />
         </SmoothScroll>
