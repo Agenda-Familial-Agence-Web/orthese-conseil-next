@@ -102,8 +102,7 @@ export default function HomePage() {
           <div className={styles.heroText}>
             <span className={styles.heroTag}>Clinique d&apos;orthèses et prothèses à Chambly</span>
             <h1 className={styles.heroTitle}>
-              Votre boutique<br />
-              <span className={styles.heroHighlight}>orthopédique</span>
+              Votre boutique <span className={styles.heroHighlight}>orthopédique</span>
             </h1>
             <p className={styles.heroDesc}>
               Orthèse Conseil vous accueille de façon humaine et dynamique. Vivez une expérience agréable et différente avec nos orthésistes certifiés.
@@ -116,16 +115,6 @@ export default function HomePage() {
                 Nos services
               </Link>
             </div>
-          </div>
-          <div className={styles.heroImage}>
-            <Image
-              src="/images/Éric_et_Marie.jpg"
-              alt="Éric Drasse et Marie Lefebvre, orthésistes"
-              width={560}
-              height={420}
-              priority
-              className={styles.heroPhoto}
-            />
           </div>
         </div>
       </section>
