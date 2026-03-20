@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: 'Services pédiatriques' };
 export default function ServicesPediatriquesPage() {
   return (
     <>
-      <HeroBanner title="Services pédiatriques" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Services pédiatriques' }]} />
+      <HeroBanner backgroundImage="/images/Marie,%20l%27orth%C3%A9siste%20en%20consultation%20avec%20une%20cliente.jpg" title="Services pédiatriques" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Services pédiatriques' }]} />
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/services-pediatriques">

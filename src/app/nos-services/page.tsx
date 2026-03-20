@@ -19,7 +19,7 @@ const services = [
 export default function NosServicesPage() {
   return (
     <>
-      <HeroBanner
+      <HeroBanner backgroundImage="/images/2082A-Boul-Industriel-01272026_105257.jpg"
         title="Nos services"
         breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Nos services' }]}
       />

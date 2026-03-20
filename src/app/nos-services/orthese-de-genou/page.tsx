@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: 'Orthèses de genou' };
 export default function OrtheseGenouPage() {
   return (
     <>
-      <HeroBanner title="Orthèses de genou" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Orthèses de genou' }]} />
+      <HeroBanner backgroundImage="/images/orth%C3%A8se%20de%20genou.jpg" title="Orthèses de genou" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Orthèses de genou' }]} />
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/orthese-de-genou">

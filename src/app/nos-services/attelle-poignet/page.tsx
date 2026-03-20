@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: 'Attelle et orthèse du poignet' };
 export default function AttellePoignetPage() {
   return (
     <>
-      <HeroBanner title="Attelle et orthèse du poignet" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Attelle du poignet' }]} />
+      <HeroBanner backgroundImage="/images/Orth%C3%A8se%20du%20poignet.jpg" title="Attelle et orthèse du poignet" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Attelle du poignet' }]} />
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/attelle-poignet">

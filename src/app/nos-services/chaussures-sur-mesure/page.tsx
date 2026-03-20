@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: 'Chaussures sur mesure' };
 export default function ChaussuresSurMesurePage() {
   return (
     <>
-      <HeroBanner title="Chaussures sur mesure" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Chaussures sur mesure' }]} />
+      <HeroBanner backgroundImage="/images/2082A-Boul-Industriel-01272026_105502.jpg" title="Chaussures sur mesure" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Chaussures sur mesure' }]} />
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/chaussures-sur-mesure">

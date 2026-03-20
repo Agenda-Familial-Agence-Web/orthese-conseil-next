@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: 'Orthèses plantaires' };
 export default function OrthesesPlantairesPage() {
   return (
     <>
-      <HeroBanner
+      <HeroBanner backgroundImage="/images/2082A-Boul-Industriel-01272026_105340.jpg"
         title="Orthèses plantaires"
         breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Orthèses plantaires' }]}
       />

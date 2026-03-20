@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: 'Bas de contention' };
 export default function BasContentionPage() {
   return (
     <>
-      <HeroBanner title="Bas de contention" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Bas de contention' }]} />
+      <HeroBanner backgroundImage="/images/2082A-Boul-Industriel-01272026_105417.jpg" title="Bas de contention" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Bas de contention' }]} />
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/bas-de-contention">

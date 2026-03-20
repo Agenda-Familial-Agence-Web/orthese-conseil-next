@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: 'TENS et électrodes' };
 export default function TensElectrodesPage() {
   return (
     <>
-      <HeroBanner title="TENS et électrodes" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'TENS et électrodes' }]} />
+      <HeroBanner backgroundImage="/images/2082A-Boul-Industriel-01272026_105316.jpg" title="TENS et électrodes" breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'TENS et électrodes' }]} />
       <section className={styles.pageContent}>
         <div className="container">
           <ServicePageLayout currentService="/nos-services/tens-et-electrodes">
