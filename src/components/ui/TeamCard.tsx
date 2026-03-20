@@ -52,7 +52,7 @@ export default function TeamCard({ member }: TeamCardProps) {
         </div>
 
         <Link
-          href={`/equipe/${member.slug}`}
+          href={`/a-propos-de-nous/${member.slug}`}
           className="mt-5 inline-flex items-center text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
         >
           Voir le profil
