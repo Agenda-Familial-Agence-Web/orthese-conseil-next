@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SmoothScroll from '@/components/SmoothScroll';
+import CustomCursor from '@/components/CustomCursor';
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +27,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
+        <SmoothScroll />
+        <CustomCursor />
         <Header />
         <main>{children}</main>
         <Footer />
