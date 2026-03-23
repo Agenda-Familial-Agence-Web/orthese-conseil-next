@@ -1,7 +1,9 @@
 'use client';
 
+import { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Activity, Footprints, ShieldPlus, Baby, Hand, Droplets, Layers, Zap } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import CTABanner from '@/components/CTABanner';
@@ -9,6 +11,8 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/Scroll
 import AnimatedCounter from '@/components/AnimatedCounter';
 import TiltCard from '@/components/TiltCard';
 import SplitText from '@/components/SplitText';
+import Testimonials from '@/components/sections/home/Testimonials';
+import FAQ from '@/components/sections/home/FAQ';
 import styles from './page.module.css';
 
 const infoBoxes = [
@@ -46,49 +50,49 @@ const services = [
     title: 'Évaluation Biomécanique',
     description: 'La solution à vos douleurs commence par une bonne évaluation.',
     href: '/nos-services/evaluation-biomecanique',
-    icon: <Activity size={32} color="var(--blue-primary)" />,
+    icon: <Activity size={32} color="#1e73be" />,
   },
   {
     title: 'Orthèses Plantaires',
     description: 'Orthèses sur mesure fabriquées directement dans notre clinique.',
     href: '/nos-services/ortheses-plantaires',
-    icon: <Footprints size={32} color="var(--blue-primary)" />,
+    icon: <Footprints size={32} color="#4caf50" />,
   },
   {
     title: 'Orthèses de Genou',
     description: 'Le soutien nécessaire pour retrouver votre mobilité en confiance.',
     href: '/nos-services/orthese-de-genou',
-    icon: <ShieldPlus size={32} color="var(--blue-primary)" />,
+    icon: <ShieldPlus size={32} color="#e67e22" />,
   },
   {
     title: 'Services Pédiatriques',
     description: 'Solutions adaptées aux besoins spécifiques des tout-petits.',
     href: '/nos-services/services-pediatriques',
-    icon: <Baby size={32} color="var(--blue-primary)" />,
+    icon: <Baby size={32} color="#e91e63" />,
   },
   {
     title: 'Attelles & Poignet',
     description: 'Favoriser la guérison et retrouver votre mobilité rapidement.',
     href: '/nos-services/attelle-poignet',
-    icon: <Hand size={32} color="var(--blue-primary)" />,
+    icon: <Hand size={32} color="#00bcd4" />,
   },
   {
     title: 'Bas de Contention',
     description: 'Vaste inventaire pour vos besoins de compression veineuse.',
     href: '/nos-services/bas-de-contention',
-    icon: <Droplets size={32} color="var(--blue-primary)" />,
+    icon: <Droplets size={32} color="#9c27b0" />,
   },
   {
     title: 'Chaussures sur Mesure',
     description: 'Chaussures thérapeutiques conçues pour corriger la posture.',
     href: '/nos-services/chaussures-sur-mesure',
-    icon: <Layers size={32} color="var(--blue-primary)" />,
+    icon: <Layers size={32} color="#795548" />,
   },
   {
     title: 'TENS & Électrodes',
     description: 'Neurostimulation électrique pour soulagement de la douleur.',
     href: '/nos-services/tens-et-electrodes',
-    icon: <Zap size={32} color="var(--blue-primary)" />,
+    icon: <Zap size={32} color="#ffc107" />,
   },
 ];
 
@@ -101,10 +105,18 @@ const reasons = [
 ];
 
 export default function HomePage() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+
   return (
     <>
       {/* ========== HERO ========== */}
-      <section className={styles.hero}>
+      <section className={styles.hero} ref={heroRef}>
+        <motion.div className={styles.heroBg} style={{ y: heroY }} />
         <div className={styles.heroOverlay} />
         <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroText}>
@@ -278,6 +290,12 @@ export default function HomePage() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* ========== TESTIMONIALS ========== */}
+      <Testimonials />
+
+      {/* ========== FAQ ========== */}
+      <FAQ />
 
       {/* ========== CTA ========== */}
       <CTABanner />

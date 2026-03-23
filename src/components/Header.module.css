@@ -122,6 +122,22 @@
   background: var(--blue-light);
 }
 
+.navLinkActive {
+  color: var(--blue-primary);
+  position: relative;
+}
+
+.navLinkActive::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: var(--blue-primary);
+  border-radius: 1px;
+}
+
 /* ---- Dropdown ---- */
 .hasDropdown {
   position: relative;

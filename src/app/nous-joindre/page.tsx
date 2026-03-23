@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import HeroBanner from '@/components/HeroBanner';
+import ContactForm from '@/components/ui/ContactForm';
 import styles from '@/styles/inner.module.css';
 
 export const metadata: Metadata = { title: 'Nous joindre' };
@@ -52,47 +53,7 @@ export default function NousJoindrePage() {
             {/* Right: Contact Form */}
             <div className={styles.contactCard}>
               <h2 style={{ marginBottom: 24 }}>Formulaire de contact</h2>
-              <form>
-                <div className={styles.formRow}>
-                  <div className={styles.formGroup}>
-                    <label className={styles.formLabel}>Prénom *</label>
-                    <input type="text" className={styles.formInput} required />
-                  </div>
-                  <div className={styles.formGroup}>
-                    <label className={styles.formLabel}>Nom *</label>
-                    <input type="text" className={styles.formInput} required />
-                  </div>
-                </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Courriel *</label>
-                  <input type="email" className={styles.formInput} required />
-                </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Téléphone *</label>
-                  <input type="tel" className={styles.formInput} required />
-                </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Meilleur moment pour vous joindre *</label>
-                  <select className={styles.formSelect} required>
-                    <option value="">Choisissez...</option>
-                    <option value="avant-midi">Avant-midi</option>
-                    <option value="apres-midi">Après-midi</option>
-                    <option value="soiree">Soirée</option>
-                    <option value="en-tout-temps">En tout temps</option>
-                  </select>
-                </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Sujet *</label>
-                  <input type="text" className={styles.formInput} required />
-                </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Votre message *</label>
-                  <textarea className={styles.formTextarea} required></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>
-                  Envoyer le message
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
 
