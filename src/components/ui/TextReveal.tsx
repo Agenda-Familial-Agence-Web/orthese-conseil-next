@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface TextRevealProps {
   children: string;
@@ -50,16 +49,14 @@ export default function TextReveal({
   className = "",
   delay = 0,
 }: TextRevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
-
   if (variant === "line") {
     const lines = children.split("\n").filter(Boolean);
     return (
-      <Tag className={className} ref={ref as React.RefObject<HTMLParagraphElement>}>
+      <Tag className={className}>
         <motion.span
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
           custom={delay}
           variants={containerVariants}
           style={{ display: "block" }}
@@ -82,10 +79,11 @@ export default function TextReveal({
   if (variant === "char") {
     const chars = children.split("");
     return (
-      <Tag className={className} ref={ref as React.RefObject<HTMLParagraphElement>}>
+      <Tag className={className}>
         <motion.span
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
           custom={delay}
           variants={containerCharVariants}
           style={{ display: "inline-flex", flexWrap: "wrap" }}
@@ -113,10 +111,11 @@ export default function TextReveal({
   // Default: word variant
   const words = children.split(" ");
   return (
-    <Tag className={className} ref={ref as React.RefObject<HTMLParagraphElement>}>
+    <Tag className={className}>
       <motion.span
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible"
+        viewport={{ once: true, margin: "-10%" }}
         custom={delay}
         variants={containerVariants}
         style={{ display: "inline-flex", flexWrap: "wrap" }}

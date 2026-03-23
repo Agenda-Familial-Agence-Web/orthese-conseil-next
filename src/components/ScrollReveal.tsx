@@ -1,7 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -22,9 +21,6 @@ export default function ScrollReveal({
   once = true,
   style,
 }: ScrollRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once, margin: '-80px' });
-
   const directions = {
     up: { y: 40, x: 0 },
     down: { y: -40, x: 0 },
@@ -34,7 +30,6 @@ export default function ScrollReveal({
 
   return (
     <motion.div
-      ref={ref}
       className={className}
       style={style}
       initial={{
@@ -42,11 +37,8 @@ export default function ScrollReveal({
         y: directions[direction].y,
         x: directions[direction].x,
       }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0, x: 0 }
-          : { opacity: 0, y: directions[direction].y, x: directions[direction].x }
-      }
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      viewport={{ once, margin: '-60px' }}
       transition={{
         duration,
         delay,
@@ -70,16 +62,13 @@ export function StaggerContainer({
   staggerDelay?: number;
   style?: React.CSSProperties;
 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-
   return (
     <motion.div
-      ref={ref}
       className={className}
       style={style}
       initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      whileInView="visible"
+      viewport={{ once: true, margin: '-40px' }}
       variants={{
         hidden: {},
         visible: {
