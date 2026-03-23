@@ -28,14 +28,25 @@ export default function CustomCursor() {
     const handleMouseEnter = () => setIsHidden(false);
     const handleMouseLeave = () => setIsHidden(true);
 
+    const hoverEnter = () => setIsHovering(true);
+    const hoverLeave = () => setIsHovering(false);
+    const greenEnter = () => setOnGreen(true);
+    const greenLeave = () => setOnGreen(false);
+
+    const trackedElements = new WeakSet<Element>();
+
     const addHoverListeners = () => {
       document.querySelectorAll('a, button, [role="button"], .card, .btn').forEach((el) => {
-        el.addEventListener('mouseenter', () => setIsHovering(true));
-        el.addEventListener('mouseleave', () => setIsHovering(false));
+        if (trackedElements.has(el)) return;
+        trackedElements.add(el);
+        el.addEventListener('mouseenter', hoverEnter);
+        el.addEventListener('mouseleave', hoverLeave);
       });
       document.querySelectorAll('.btn-green').forEach((el) => {
-        el.addEventListener('mouseenter', () => setOnGreen(true));
-        el.addEventListener('mouseleave', () => setOnGreen(false));
+        if (trackedElements.has(el)) return;
+        trackedElements.add(el);
+        el.addEventListener('mouseenter', greenEnter);
+        el.addEventListener('mouseleave', greenLeave);
       });
     };
 
