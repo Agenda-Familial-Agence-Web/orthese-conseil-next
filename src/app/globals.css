@@ -7,27 +7,20 @@
 
 /* ---- Tailwind v4 Theme ---- */
 @theme {
-  /* Brand Colors */
   --color-primary: #1e73be;
   --color-primary-dark: #003366;
   --color-primary-light: #e8f2fc;
   --color-accent: #4caf50;
   --color-accent-dark: #43a047;
   --color-accent-light: #e8f5e9;
-
-  /* Semantic Colors */
   --color-text-primary: #1a1a2e;
   --color-text-secondary: #475569;
   --color-text-muted: #64748b;
   --color-warm-gray: #f8fafb;
   --color-dark: #001d3d;
   --color-border: #e2e8f0;
-
-  /* Fonts */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
-
-  /* Animations */
   --animate-marquee: marquee linear infinite;
   --animate-blob-morph: blob-morph 20s ease-in-out infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -56,15 +49,13 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Custom utility: section-padding */
 @utility section-padding {
   padding-top: var(--section-padding, 100px);
   padding-bottom: var(--section-padding, 100px);
 }
 
-/* ---- CSS Variables / Design Tokens ---- */
+/* ---- Design Tokens ---- */
 :root {
-  /* Brand Colors */
   --blue-primary: #1e73be;
   --blue-dark: #003366;
   --blue-deep: #001d3d;
@@ -73,8 +64,6 @@
   --green-accent: #4caf50;
   --green-light: #e8f5e9;
   --green-hover: #43a047;
-
-  /* Neutrals */
   --white: #ffffff;
   --off-white: #f8fafb;
   --gray-50: #f1f5f9;
@@ -89,33 +78,23 @@
   --text-primary: #1a1a2e;
   --text-secondary: #475569;
   --text-muted: #64748b;
-
-  /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
-
-  /* Spacing */
   --section-padding: 100px;
   --container-max: 1200px;
   --container-padding: 24px;
-
-  /* Borders & Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
-
-  /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
   --shadow-card: 0 2px 16px rgba(30, 115, 190, 0.08);
   --shadow-card-hover: 0 8px 30px rgba(30, 115, 190, 0.15);
-
-  /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -175,9 +154,7 @@ a {
   transition: color var(--transition-fast);
 }
 
-a:hover {
-  color: var(--blue-hover);
-}
+a:hover { color: var(--blue-hover); }
 
 img {
   max-width: 100%;
@@ -185,9 +162,7 @@ img {
   display: block;
 }
 
-ul, ol {
-  list-style: none;
-}
+ul, ol { list-style: none; }
 
 /* ---- Layout Utilities ---- */
 .container {
@@ -196,13 +171,8 @@ ul, ol {
   padding: 0 var(--container-padding);
 }
 
-.section {
-  padding: var(--section-padding) 0;
-}
-
-.section-alt {
-  background-color: var(--off-white);
-}
+.section { padding: var(--section-padding) 0; }
+.section-alt { background-color: var(--off-white); }
 
 .section-blue {
   background-color: var(--blue-dark);
@@ -211,13 +181,9 @@ ul, ol {
 
 .section-blue h2,
 .section-blue h3,
-.section-blue p {
-  color: var(--white);
-}
+.section-blue p { color: var(--white); }
 
-.section-blue p {
-  opacity: 0.9;
-}
+.section-blue p { opacity: 0.9; }
 
 /* ---- Section Header ---- */
 .section-header {
@@ -300,15 +266,8 @@ ul, ol {
   color: var(--white);
 }
 
-.btn-sm {
-  padding: 10px 24px;
-  font-size: 0.9rem;
-}
-
-.btn-lg {
-  padding: 18px 40px;
-  font-size: 1.1rem;
-}
+.btn-sm { padding: 10px 24px; font-size: 0.9rem; }
+.btn-lg { padding: 18px 40px; font-size: 1.1rem; }
 
 /* ---- Cards ---- */
 .card {
@@ -327,34 +286,14 @@ ul, ol {
 }
 
 /* ---- Grid ---- */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-}
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-/* ---- Animation Keyframes ---- */
+/* ---- Animations ---- */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -363,69 +302,31 @@ ul, ol {
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.7s ease forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease forwards;
-}
+.animate-fade-in-up { animation: fadeInUp 0.7s ease forwards; }
+.animate-fade-in { animation: fadeIn 0.6s ease forwards; }
 
 /* ---- Responsive ---- */
 @media (max-width: 1024px) {
-  :root {
-    --section-padding: 80px;
-  }
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  :root { --section-padding: 80px; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  :root {
-    --section-padding: 60px;
-    --container-padding: 16px;
-  }
-  .grid-2,
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-  .grid-4 {
-    grid-template-columns: 1fr;
-  }
-  .section-header {
-    margin-bottom: 40px;
-  }
+  :root { --section-padding: 60px; --container-padding: 16px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .section-header { margin-bottom: 40px; }
 }

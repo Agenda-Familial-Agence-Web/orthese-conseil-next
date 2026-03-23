@@ -1,45 +1,25 @@
-"use client";
-
-import { useRef } from "react";
+'use client';
 
 interface InfiniteMarqueeProps {
   children: React.ReactNode;
   speed?: number;
-  direction?: "left" | "right";
-  pauseOnHover?: boolean;
-  className?: string;
+  reverse?: boolean;
 }
 
-export default function InfiniteMarquee({
-  children,
-  speed = 30,
-  direction = "left",
-  pauseOnHover = true,
-  className = "",
-}: InfiniteMarqueeProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const animationStyle = {
-    animationDuration: `${speed}s`,
-    animationDirection: direction === "right" ? "reverse" as const : "normal" as const,
-  };
-
+export default function InfiniteMarquee({ children, speed = 40, reverse = false }: InfiniteMarqueeProps) {
   return (
-    <div
-      ref={containerRef}
-      className={`overflow-hidden ${className}`}
-      style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}
-    >
+    <div style={{ overflow: 'hidden', width: '100%' }}>
       <div
-        className={`flex whitespace-nowrap animate-marquee ${pauseOnHover ? "hover:[animation-play-state:paused]" : ""}`}
-        style={animationStyle}
+        style={{
+          display: 'flex',
+          gap: 24,
+          width: 'max-content',
+          animation: `marquee ${speed}s linear infinite`,
+          animationDirection: reverse ? 'reverse' : 'normal',
+        }}
       >
-        <div className="flex gap-6 shrink-0 pr-6">
-          {children}
-        </div>
-        <div className="flex gap-6 shrink-0 pr-6" aria-hidden="true">
-          {children}
-        </div>
+        {children}
+        {children}
       </div>
     </div>
   );

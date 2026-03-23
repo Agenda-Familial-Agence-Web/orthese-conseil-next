@@ -1,26 +1,28 @@
 import Link from 'next/link';
 import styles from './HeroBanner.module.css';
 
+interface Breadcrumb {
+  label: string;
+  href?: string;
+}
+
 interface HeroBannerProps {
   title: string;
-  breadcrumbs?: { label: string; href?: string }[];
-  backgroundImage?: string;
+  breadcrumbs?: Breadcrumb[];
   compact?: boolean;
 }
 
-export default function HeroBanner({ title, breadcrumbs, backgroundImage, compact }: HeroBannerProps) {
+export default function HeroBanner({ title, breadcrumbs, compact }: HeroBannerProps) {
   return (
-    <section
-      className={`${styles.hero} ${compact ? styles.compact : ''}`}
-      style={backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {}}
-    >
+    <section className={`${styles.hero} ${compact ? styles.compact : ''}`}>
       <div className={styles.overlay} />
       <div className={`container ${styles.content}`}>
-        {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav className={styles.breadcrumbs} aria-label="Fil d'Ariane">
+        {breadcrumbs && (
+          <nav className={styles.breadcrumbs}>
+            <Link href="/">Accueil</Link>
             {breadcrumbs.map((crumb, i) => (
-              <span key={i} className={styles.breadcrumb}>
-                {i > 0 && <span className={styles.separator}>/</span>}
+              <span key={i}>
+                <span className={styles.separator}>/</span>
                 {crumb.href ? (
                   <Link href={crumb.href}>{crumb.label}</Link>
                 ) : (

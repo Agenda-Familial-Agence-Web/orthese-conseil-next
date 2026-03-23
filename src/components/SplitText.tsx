@@ -18,27 +18,41 @@ export default function SplitText({
   const words = children.split(' ');
 
   return (
-    <Tag className={className} style={{ display: 'flex', flexWrap: 'wrap', gap: '0 0.3em' }}>
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          style={{ display: 'inline-block', overflow: 'hidden' }}
-        >
-          <motion.span
-            style={{ display: 'inline-block' }}
-            initial={{ y: '100%', opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{
-              duration: 0.5,
-              delay: delay + i * 0.06,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-          >
-            {word}
-          </motion.span>
-        </motion.span>
-      ))}
+    <Tag className={className}>
+      <motion.span
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-40px' }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.06,
+              delayChildren: delay,
+            },
+          },
+        }}
+        style={{ display: 'inline' }}
+      >
+        {words.map((word, i) => (
+          <span key={i} style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'top' }}>
+            <motion.span
+              style={{ display: 'inline-block' }}
+              variants={{
+                hidden: { y: '100%', opacity: 0 },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                  transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+                },
+              }}
+            >
+              {word}
+            </motion.span>
+            {i < words.length - 1 && '\u00A0'}
+          </span>
+        ))}
+      </motion.span>
     </Tag>
   );
 }

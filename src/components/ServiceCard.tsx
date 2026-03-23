@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ServiceCard.module.css';
-import React from 'react';
 
 interface ServiceCardProps {
   title: string;
@@ -14,14 +13,12 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, description, href, icon, image }: ServiceCardProps) {
   return (
     <Link href={href} className={styles.card}>
-      <div className={styles.iconWrapper}>
+      <div className={styles.iconWrap}>
         {image ? (
-          <Image src={image} alt={title} width={80} height={80} className={styles.image} />
+          <Image src={image} alt={title} width={50} height={50} className={styles.iconWrap + ' ' + 'img'} />
         ) : icon ? (
-          <span className={styles.emoji}>{icon}</span>
-        ) : (
-          <div className={styles.placeholder} />
-        )}
+          icon
+        ) : null}
       </div>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>

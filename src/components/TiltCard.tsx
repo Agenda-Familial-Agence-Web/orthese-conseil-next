@@ -1,45 +1,49 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface TiltCardProps {
   children: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties;
   tiltAmount?: number;
 }
 
-export default function TiltCard({ children, className, style, tiltAmount = 8 }: TiltCardProps) {
+export default function TiltCard({ children, className, tiltAmount = 8 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+
+  const springX = useSpring(rotateX, { stiffness: 200, damping: 20 });
+  const springY = useSpring(rotateY, { stiffness: 200, damping: 20 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * tiltAmount;
-    const rotateX = -((e.clientY - centerY) / (rect.height / 2)) * tiltAmount;
-    setRotate({ x: rotateX, y: rotateY });
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    rotateX.set(-y * tiltAmount);
+    rotateY.set(x * tiltAmount);
   };
 
   const handleMouseLeave = () => {
-    setRotate({ x: 0, y: 0 });
+    rotateX.set(0);
+    rotateY.set(0);
   };
 
   return (
     <motion.div
       ref={ref}
       className={className}
-      style={{ ...style, perspective: 1000, transformStyle: 'preserve-3d' }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={{
-        rotateX: rotate.x,
-        rotateY: rotate.y,
+      style={{
+        rotateX: springX,
+        rotateY: springY,
+        transformStyle: 'preserve-3d',
+        perspective: 1000,
       }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       {children}
     </motion.div>

@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import HeroBanner from '@/components/HeroBanner';
-import styles from '@/styles/inner.module.css';
 
-export const metadata: Metadata = { title: 'Conseils' };
+export const metadata: Metadata = {
+  title: 'Conseils',
+  description: 'Conseils et articles sur la santé orthopédique par Orthèse Conseil. Informations sur les orthèses, la posture et le bien-être.',
+};
 
 const articles = [
   {
-    id: "marche-enfant",
-    title: "Le développement de la marche chez l'enfant, c'est important !",
-    excerpt: "Découvrez comment accompagner le développement moteur de votre enfant et quand consulter un orthésiste.",
-    category: "Enfants",
+    id: 'marche-enfant',
+    category: 'Pédiatrie',
+    title: 'Le développement de la marche chez l\'enfant',
+    excerpt: 'Découvrez les étapes normales du développement de la marche chez l\'enfant et quand consulter un orthésiste si vous observez des anomalies.',
   },
   {
-    id: "sante-aines",
-    title: "Nous avons à cœur la santé de nos aînés",
-    excerpt: "Les solutions orthopédiques adaptées pour les personnes âgées afin d'améliorer leur qualité de vie.",
-    category: "Aînés",
+    id: 'sante-aines',
+    category: 'Aînés',
+    title: 'Nous avons à cœur la santé de nos aînés',
+    excerpt: 'Les orthèses et appareils orthopédiques jouent un rôle essentiel dans le maintien de la mobilité et de l\'autonomie des personnes âgées.',
   },
 ];
 
@@ -25,25 +26,48 @@ export default function ConseilsPage() {
     <>
       <HeroBanner
         title="Conseils"
-        breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Conseils' }]}
+        breadcrumbs={[{ label: 'Conseils' }]}
       />
-      <section className={styles.pageContent}>
-        <div className="container" style={{ maxWidth: 900 }}>
+
+      <section className="section">
+        <div className="container">
           <div className="section-header">
-            <h2>Nos derniers articles</h2>
-            <p>Conseils et informations de nos orthésistes pour votre bien-être</p>
+            <h2>Articles et conseils</h2>
+            <p>Des informations utiles pour votre santé orthopédique.</p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            {articles.map((article, i) => (
-              <article key={i} id={article.id} className="card" style={{ padding: 32 }}>
-                <span style={{ display: 'inline-block', padding: '4px 14px', background: 'var(--blue-light)', color: 'var(--blue-primary)', borderRadius: 'var(--radius-full)', fontSize: '0.8rem', fontWeight: 600, marginBottom: 12 }}>
+
+          <div className="grid-2" style={{ maxWidth: 900, margin: '0 auto' }}>
+            {articles.map((article) => (
+              <div
+                key={article.id}
+                id={article.id}
+                className="card"
+                style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+              >
+                <span style={{
+                  display: 'inline-block',
+                  padding: '4px 12px',
+                  background: 'var(--blue-light)',
+                  color: 'var(--blue-primary)',
+                  borderRadius: 'var(--radius-full)',
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  alignSelf: 'flex-start',
+                }}>
                   {article.category}
                 </span>
-                <h3 style={{ marginBottom: 8, fontSize: '1.3rem' }}>{article.title}</h3>
-                <p style={{ marginBottom: 16 }}>{article.excerpt}</p>
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>Article complet à venir</span>
-              </article>
+                <h3>{article.title}</h3>
+                <p>{article.excerpt}</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+                  Article complet à venir
+                </p>
+              </div>
             ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 48 }}>
+            <p style={{ color: 'var(--text-muted)' }}>Plus d&apos;articles à venir prochainement.</p>
           </div>
         </div>
       </section>

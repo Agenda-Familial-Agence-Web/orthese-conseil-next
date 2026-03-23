@@ -15,7 +15,6 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerInner}`}>
-        {/* Column 1 — About */}
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Orthèse Conseil</h3>
           <p className={styles.about}>
@@ -23,7 +22,6 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Column 2 — Navigation */}
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Navigation</h3>
           <ul className={styles.linkList}>
@@ -35,7 +33,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 3 — Conseils */}
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Derniers conseils</h3>
           <ul className={styles.linkList}>
@@ -52,7 +49,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 4 — Contact */}
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Coordonnées</h3>
           <address className={styles.address}>
@@ -72,10 +68,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className={styles.bottomBar}>
         <div className="container">
-          <p>© {new Date().getFullYear()} Orthèse Conseil. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Orthèse Conseil. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

@@ -1,225 +1,87 @@
-"use client";
+'use client';
 
-import { useState, FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import FloatingLabel from "./FloatingLabel";
-import MagneticButton from "./MagneticButton";
-import { services } from "@/data/services";
-
-interface FormData {
-  nom: string;
-  telephone: string;
-  courriel: string;
-  service: string;
-  message: string;
-}
-
-interface FormErrors {
-  nom?: string;
-  telephone?: string;
-  courriel?: string;
-}
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import FloatingLabel from './FloatingLabel';
+import { services } from '@/data/services';
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState<FormData>({
-    nom: "",
-    telephone: "",
-    courriel: "",
-    service: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [form, setForm] = useState({ nom: '', telephone: '', courriel: '', service: '', message: '' });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
-  const [shakeFields, setShakeFields] = useState<string[]>([]);
 
-  const validate = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.nom.trim()) newErrors.nom = "Le nom est requis";
-    if (!formData.telephone.trim())
-      newErrors.telephone = "Le téléphone est requis";
-    if (!formData.courriel.trim()) {
-      newErrors.courriel = "Le courriel est requis";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.courriel)) {
-      newErrors.courriel = "Courriel invalide";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length > 0) {
-      setShakeFields(Object.keys(newErrors));
-      setTimeout(() => setShakeFields([]), 500);
-      return false;
-    }
-
-    return true;
+  const update = (field: string) => (value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: '' }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const validate = () => {
+    const errs: Record<string, string> = {};
+    if (!form.nom.trim()) errs.nom = 'Veuillez entrer votre nom';
+    if (!form.telephone.trim() && !form.courriel.trim()) errs.courriel = 'Veuillez entrer un courriel ou téléphone';
+    if (!form.message.trim()) errs.message = 'Veuillez entrer votre message';
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) {
-      setSubmitted(true);
-    }
+    if (validate()) setSubmitted(true);
   };
-
-  const updateField = (field: keyof FormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    if (errors[field as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [field]: undefined }));
-    }
-  };
-
-  if (submitted) {
-    return (
-      <motion.div
-        className="flex flex-col items-center justify-center py-16 text-center"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <motion.div
-          className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mb-6"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 15 }}
-        >
-          <svg
-            className="w-10 h-10 text-accent"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </motion.div>
-        <motion.h3
-          className="text-2xl font-heading font-bold text-text-primary mb-2"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          Message envoyé!
-        </motion.h3>
-        <motion.p
-          className="text-text-secondary"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
-          Nous vous répondrons dans les plus brefs délais.
-        </motion.p>
-      </motion.div>
-    );
-  }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8" noValidate>
-      {(["nom", "telephone", "courriel"] as const).map((field) => {
-        const labels: Record<string, string> = {
-          nom: "Nom complet",
-          telephone: "Téléphone",
-          courriel: "Courriel",
-        };
-        const types: Record<string, string> = {
-          nom: "text",
-          telephone: "tel",
-          courriel: "email",
-        };
-
-        return (
-          <motion.div
-            key={field}
-            animate={
-              shakeFields.includes(field)
-                ? { x: [0, -10, 10, -10, 0] }
-                : { x: 0 }
-            }
-            transition={{ duration: 0.4 }}
-          >
-            <FloatingLabel
-              label={labels[field]}
-              name={field}
-              type={types[field]}
-              required
-              value={formData[field]}
-              onChange={(val) => updateField(field, val)}
-              error={errors[field as keyof FormErrors]}
-            />
-          </motion.div>
-        );
-      })}
-
-      {/* Service select */}
-      <div className="relative">
-        <label
-          htmlFor="service"
-          className="block text-sm text-text-muted mb-2"
+    <AnimatePresence mode="wait">
+      {submitted ? (
+        <motion.div
+          key="success"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          style={{ textAlign: 'center', padding: 40 }}
         >
-          Service
-        </label>
-        <select
-          id="service"
-          name="service"
-          value={formData.service}
-          onChange={(e) => updateField("service", e.target.value)}
-          className="w-full bg-transparent border-b-2 border-gray-300 py-2 text-text-primary outline-none focus:border-primary transition-colors duration-300 appearance-none cursor-pointer"
-        >
-          <option value="">Sélectionner un service</option>
-          {services.map((s) => (
-            <option key={s.slug} value={s.slug}>
-              {s.name}
-            </option>
-          ))}
-        </select>
-        <svg
-          className="absolute right-0 bottom-3 w-5 h-5 text-text-muted pointer-events-none"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
-
-      {/* Message textarea */}
-      <FloatingLabel
-        label="Message"
-        name="message"
-        textarea
-        value={formData.message}
-        onChange={(val) => updateField("message", val)}
-      />
-
-      {/* Submit */}
-      <MagneticButton
-        className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-heading font-semibold rounded-full hover:bg-primary-dark transition-colors duration-300"
-        onClick={() => {}}
-      >
-        <button
-          type="submit"
-          className="flex items-center gap-2"
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          Envoyer le message
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-            />
-          </svg>
-        </button>
-      </MagneticButton>
-    </form>
+          <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--green-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green-accent)" strokeWidth="2.5"><path d="M20 6 9 17l-5-5" /></svg>
+          </div>
+          <h3 style={{ marginBottom: 8 }}>Message envoyé!</h3>
+          <p>Nous vous contacterons dans les plus brefs délais.</p>
+        </motion.div>
+      ) : (
+        <motion.form key="form" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <FloatingLabel label="Nom complet" name="nom" value={form.nom} onChange={update('nom')} error={errors.nom} required />
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <FloatingLabel label="Téléphone" name="telephone" type="tel" value={form.telephone} onChange={update('telephone')} />
+            <FloatingLabel label="Courriel" name="courriel" type="email" value={form.courriel} onChange={update('courriel')} error={errors.courriel} />
+          </div>
+          <div style={{ position: 'relative' }}>
+            <select
+              name="service"
+              value={form.service}
+              onChange={(e) => update('service')(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '14px 16px',
+                fontFamily: 'var(--font-body)',
+                fontSize: '1rem',
+                color: form.service ? 'var(--text-primary)' : 'var(--text-muted)',
+                background: 'var(--white)',
+                border: 'none',
+                borderBottom: '2px solid var(--gray-100)',
+                borderRadius: 'var(--radius-sm) var(--radius-sm) 0 0',
+                outline: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              <option value="">Choisir un service (optionnel)</option>
+              {services.map((s) => (
+                <option key={s.slug} value={s.name}>{s.name}</option>
+              ))}
+            </select>
+          </div>
+          <FloatingLabel label="Votre message" name="message" value={form.message} onChange={update('message')} error={errors.message} textarea required />
+          <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>
+            Envoyer le message
+          </button>
+        </motion.form>
+      )}
+    </AnimatePresence>
   );
 }

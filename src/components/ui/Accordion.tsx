@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface AccordionItem {
   question: string;
@@ -10,58 +10,68 @@ interface AccordionItem {
 
 interface AccordionProps {
   items: AccordionItem[];
-  className?: string;
 }
 
-export default function Accordion({ items, className = "" }: AccordionProps) {
+export default function Accordion({ items }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <div className={className}>
-      {items.map((item, index) => {
-        const isOpen = openIndex === index;
-
-        return (
-          <div key={index} className="border-b border-border py-5">
-            <button
-              type="button"
-              onClick={() => toggle(index)}
-              className="flex w-full justify-between items-center cursor-pointer text-left"
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 800, margin: '0 auto' }}>
+      {items.map((item, i) => (
+        <div
+          key={i}
+          style={{
+            background: 'var(--white)',
+            borderRadius: 'var(--radius-md)',
+            border: `1px solid ${openIndex === i ? 'rgba(30, 115, 190, 0.2)' : 'var(--gray-100)'}`,
+            overflow: 'hidden',
+            transition: 'border-color var(--transition-base)',
+          }}
+        >
+          <button
+            onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '20px 24px',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              fontFamily: 'var(--font-heading)',
+              fontSize: '1.05rem',
+              fontWeight: 600,
+              color: openIndex === i ? 'var(--blue-primary)' : 'var(--text-primary)',
+              textAlign: 'left',
+              transition: 'color var(--transition-fast)',
+            }}
+          >
+            {item.question}
+            <motion.span
+              animate={{ rotate: openIndex === i ? 45 : 0 }}
+              transition={{ duration: 0.2 }}
+              style={{ fontSize: '1.4rem', lineHeight: 1, flexShrink: 0, marginLeft: 16 }}
             >
-              <span className="font-heading text-lg font-medium text-text-primary pr-4">
-                {item.question}
-              </span>
-              <motion.span
-                className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-primary text-xl font-light"
-                animate={{ rotate: isOpen ? 45 : 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              +
+            </motion.span>
+          </button>
+          <AnimatePresence initial={false}>
+            {openIndex === i && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                +
-              </motion.span>
-            </button>
-
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="overflow-hidden"
-                >
-                  <p className="pt-4 text-text-secondary leading-relaxed">
-                    {item.answer}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        );
-      })}
+                <div style={{ padding: '0 24px 20px', color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.7 }}>
+                  {item.answer}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
     </div>
   );
 }

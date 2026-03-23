@@ -70,7 +70,6 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Dot */}
       <motion.div
         style={{
           position: 'fixed',
@@ -87,7 +86,6 @@ export default function CustomCursor() {
           mixBlendMode: 'difference',
         }}
       />
-      {/* Ring */}
       <motion.div
         style={{
           position: 'fixed',
