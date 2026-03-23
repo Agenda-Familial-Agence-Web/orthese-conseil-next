@@ -40,12 +40,12 @@ export default function Footer() {
           <h3 className={styles.colTitle}>Derniers conseils</h3>
           <ul className={styles.linkList}>
             <li>
-              <Link href="/conseils" className={styles.link}>
+              <Link href="/conseils#marche-enfant" className={styles.link}>
                 Le développement de la marche chez l&apos;enfant
               </Link>
             </li>
             <li>
-              <Link href="/conseils" className={styles.link}>
+              <Link href="/conseils#sante-aines" className={styles.link}>
                 Nous avons à cœur la santé de nos aînés
               </Link>
             </li>

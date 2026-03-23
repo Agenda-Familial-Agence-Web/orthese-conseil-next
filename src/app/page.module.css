@@ -341,6 +341,7 @@
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-slow);
   border: 1px solid var(--gray-100);
+  border-left: 4px solid var(--blue-primary);
 }
 
 .reasonCard:hover {
