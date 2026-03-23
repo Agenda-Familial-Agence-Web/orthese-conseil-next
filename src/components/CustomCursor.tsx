@@ -7,6 +7,7 @@ export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+  const [onGreen, setOnGreen] = useState(false);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -31,6 +32,10 @@ export default function CustomCursor() {
       document.querySelectorAll('a, button, [role="button"], .card, .btn').forEach((el) => {
         el.addEventListener('mouseenter', () => setIsHovering(true));
         el.addEventListener('mouseleave', () => setIsHovering(false));
+      });
+      document.querySelectorAll('.btn-green').forEach((el) => {
+        el.addEventListener('mouseenter', () => setOnGreen(true));
+        el.addEventListener('mouseleave', () => setOnGreen(false));
       });
     };
 
@@ -63,7 +68,7 @@ export default function CustomCursor() {
           width: 8,
           height: 8,
           borderRadius: '50%',
-          background: 'var(--blue-primary)',
+          background: onGreen ? 'var(--blue-primary)' : 'var(--green-accent)',
           pointerEvents: 'none',
           zIndex: 99999,
           transform: 'translate(-50%, -50%)',
@@ -94,7 +99,7 @@ export default function CustomCursor() {
             width: '100%',
             height: '100%',
             borderRadius: '50%',
-            border: '1.5px solid var(--blue-primary)',
+            border: onGreen ? '1.5px solid var(--blue-primary)' : '1.5px solid var(--green-accent)',
             opacity: 0.6,
           }}
         />

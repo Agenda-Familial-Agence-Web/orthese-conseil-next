@@ -112,7 +112,7 @@ export default function HomePage() {
               <span className={styles.heroTag}>Clinique d&apos;orthèses et prothèses à Chambly</span>
             </ScrollReveal>
             <SplitText as="h1" className={styles.heroTitle} delay={0.3}>
-              Votre boutique orthopédique
+              Votre santé, notre approche humaine
             </SplitText>
             <ScrollReveal delay={0.6}>
               <p className={styles.heroDesc}>
@@ -197,8 +197,8 @@ export default function HomePage() {
             <ScrollReveal direction="left">
               <div className={styles.aboutImage}>
                 <Image
-                  src="/images/2082A-Boul-Industriel-Photo-1.jpg"
-                  alt="Clinique Orthèse Conseil"
+                  src="/images/team/eric-et-marie-comptoir.jpg"
+                  alt="Éric et Marie vous accueillent au comptoir de la clinique"
                   width={600}
                   height={450}
                   className={styles.aboutPhoto}

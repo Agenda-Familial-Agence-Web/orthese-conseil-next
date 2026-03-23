@@ -41,7 +41,7 @@ export default function ConseilsPage() {
                 </span>
                 <h3 style={{ marginBottom: 8, fontSize: '1.3rem' }}>{article.title}</h3>
                 <p style={{ marginBottom: 16 }}>{article.excerpt}</p>
-                <Link href="#" className="btn btn-secondary btn-sm">Lire la suite</Link>
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>Article complet à venir</span>
               </article>
             ))}
           </div>

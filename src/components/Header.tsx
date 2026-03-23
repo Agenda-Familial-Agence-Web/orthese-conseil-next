@@ -76,8 +76,8 @@ export default function Header() {
             <Image
               src="/images/orthese-logo-header-retina-1.png"
               alt="Orthèse Conseil"
-              width={180}
-              height={45}
+              width={240}
+              height={60}
               priority
             />
           </Link>
