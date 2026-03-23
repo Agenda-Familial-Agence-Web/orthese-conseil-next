@@ -194,8 +194,8 @@ export const services: Service[] = [
     name: "TENS et électrodes",
     shortDescription: "Appareils TENS pour le soulagement de la douleur par électrostimulation à domicile.",
     fullDescription: "Nous offrons des appareils de neurostimulation électrique transcutanée (TENS) pour le soulagement de la douleur à domicile. Ces appareils portables et faciles d'utilisation permettent de gérer la douleur chronique ou aiguë de façon non médicamenteuse. Notre équipe vous accompagne dans le choix et l'utilisation de l'appareil.",
-    icon: "/images/services/evaluation-biomecanique.png",
-    heroImage: "/images/services/evaluation-biomecanique.png",
+    icon: "/images/tens_electrodes.png",
+    heroImage: "/images/2082A-Boul-Industriel-01272026_105316.jpg",
     features: [
       { title: "Appareils portables", description: "TENS compacts et faciles à utiliser au quotidien." },
       { title: "Sans médicament", description: "Soulagement naturel de la douleur par électrostimulation." },
