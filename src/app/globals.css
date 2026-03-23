@@ -50,6 +50,12 @@
   50% { transform: translateY(-8px); }
 }
 
+@keyframes starPop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 /* Custom utility: section-padding */
 @utility section-padding {
   padding-top: var(--section-padding, 100px);
