@@ -49,6 +49,17 @@
   flex-wrap: wrap;
 }
 
+.outlineBtn {
+  background: transparent !important;
+  border: 2px solid var(--white) !important;
+  color: var(--white) !important;
+}
+
+.outlineBtn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--white) !important;
+}
+
 @media (max-width: 640px) {
   .cta {
     padding: 60px 0;
