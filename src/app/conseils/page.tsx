@@ -7,11 +7,13 @@ export const metadata: Metadata = { title: 'Conseils' };
 
 const articles = [
   {
+    id: "marche-enfant",
     title: "Le développement de la marche chez l'enfant, c'est important !",
     excerpt: "Découvrez comment accompagner le développement moteur de votre enfant et quand consulter un orthésiste.",
     category: "Enfants",
   },
   {
+    id: "sante-aines",
     title: "Nous avons à cœur la santé de nos aînés",
     excerpt: "Les solutions orthopédiques adaptées pour les personnes âgées afin d'améliorer leur qualité de vie.",
     category: "Aînés",
@@ -33,7 +35,7 @@ export default function ConseilsPage() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
             {articles.map((article, i) => (
-              <article key={i} className="card" style={{ padding: 32 }}>
+              <article key={i} id={article.id} className="card" style={{ padding: 32 }}>
                 <span style={{ display: 'inline-block', padding: '4px 14px', background: 'var(--blue-light)', color: 'var(--blue-primary)', borderRadius: 'var(--radius-full)', fontSize: '0.8rem', fontWeight: 600, marginBottom: 12 }}>
                   {article.category}
                 </span>

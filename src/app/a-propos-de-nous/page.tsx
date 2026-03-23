@@ -29,8 +29,8 @@ export default function AProposPage() {
               </p>
             </div>
             <Image
-              src="/images/Éric_et_Marie.jpg"
-              alt="Éric Drasse et Marie Lefebvre"
+              src="/images/clinic/hero-clinic.jpg"
+              alt="Clinique Orthèse Conseil"
               width={560}
               height={400}
               className={styles.contentImage}
