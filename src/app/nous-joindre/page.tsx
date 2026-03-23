@@ -60,7 +60,7 @@ export default function NousJoindrePage() {
           {/* Map embed */}
           <div style={{ marginTop: 48, borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2816.6!2d-73.291!3d45.442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc912345678!2s2082+Boul+Industriel%2C+Chambly%2C+QC+J3L+4V2!5e0!3m2!1sfr!2sca!4v1"
+              src="https://maps.google.com/maps?q=2082+Boulevard+Industriel,+Chambly,+QC+J3L+4V2&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="400"
               style={{ border: 0 }}
