@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: 'Évaluation biomécanique' };
 export default function EvaluationBiomecPage() {
   return (
     <>
-      <HeroBanner backgroundImage="/images/%C3%89valuation%20biomechanique.jpg"
+      <HeroBanner backgroundImage="/images/evaluation-biomecanique-hero.jpg"
         title="Évaluation biomécanique"
         breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Services', href: '/nos-services' }, { label: 'Évaluation biomécanique' }]}
       />
