@@ -118,7 +118,7 @@ export default function TextReveal({
         viewport={{ once: true, margin: "-10%" }}
         custom={delay}
         variants={containerVariants}
-        style={{ display: "inline-flex", flexWrap: "wrap" }}
+        style={{ display: "inline-flex", flexWrap: "wrap", gap: "0 0.3em" }}
         aria-label={children}
       >
         {words.map((word, i) => (
@@ -127,7 +127,6 @@ export default function TextReveal({
             style={{
               display: "inline-block",
               overflow: "hidden",
-              marginRight: "0.25em",
             }}
           >
             <motion.span
