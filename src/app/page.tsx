@@ -1,7 +1,9 @@
 'use client';
 
+import { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Activity, Footprints, ShieldPlus, Baby, Hand, Droplets, Layers, Zap } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import CTABanner from '@/components/CTABanner';
@@ -9,6 +11,8 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from '@/components/Scroll
 import AnimatedCounter from '@/components/AnimatedCounter';
 import TiltCard from '@/components/TiltCard';
 import SplitText from '@/components/SplitText';
+import Testimonials from '@/components/sections/home/Testimonials';
+import FAQ from '@/components/sections/home/FAQ';
 import styles from './page.module.css';
 
 const infoBoxes = [
@@ -101,10 +105,18 @@ const reasons = [
 ];
 
 export default function HomePage() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+
   return (
     <>
       {/* ========== HERO ========== */}
-      <section className={styles.hero}>
+      <section className={styles.hero} ref={heroRef}>
+        <motion.div className={styles.heroBg} style={{ y: heroY }} />
         <div className={styles.heroOverlay} />
         <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroText}>
@@ -278,6 +290,12 @@ export default function HomePage() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* ========== TESTIMONIALS ========== */}
+      <Testimonials />
+
+      {/* ========== FAQ ========== */}
+      <FAQ />
 
       {/* ========== CTA ========== */}
       <CTABanner />

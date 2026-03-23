@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
 
 const services = [
@@ -27,9 +28,15 @@ const aboutItems = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -85,7 +92,7 @@ export default function Header() {
           <nav className={`${styles.nav} ${mobileOpen ? styles.navOpen : ''}`}>
             <ul className={styles.navList}>
               <li className={styles.navItem}>
-                <Link href="/" className={styles.navLink} onClick={() => setMobileOpen(false)}>Accueil</Link>
+                <Link href="/" className={`${styles.navLink} ${isActive('/') ? styles.navLinkActive : ''}`} onClick={() => setMobileOpen(false)}>Accueil</Link>
               </li>
 
               {/* About Dropdown */}
@@ -94,7 +101,7 @@ export default function Header() {
                 onMouseEnter={() => setActiveDropdown('about')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className={styles.navLink} onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}>
+                <button className={`${styles.navLink} ${isActive('/a-propos-de-nous') || isActive('/10-raisons') ? styles.navLinkActive : ''}`} onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}>
                   À propos
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
@@ -115,7 +122,7 @@ export default function Header() {
                 onMouseEnter={() => setActiveDropdown('services')}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className={styles.navLink} onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}>
+                <button className={`${styles.navLink} ${isActive('/nos-services') ? styles.navLinkActive : ''}`} onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}>
                   Nos services
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
@@ -131,13 +138,13 @@ export default function Header() {
               </li>
 
               <li className={styles.navItem}>
-                <Link href="/demande-de-consultation" className={styles.navLink} onClick={() => setMobileOpen(false)}>Consultation</Link>
+                <Link href="/demande-de-consultation" className={`${styles.navLink} ${isActive('/demande-de-consultation') ? styles.navLinkActive : ''}`} onClick={() => setMobileOpen(false)}>Consultation</Link>
               </li>
               <li className={styles.navItem}>
-                <Link href="/conseils" className={styles.navLink} onClick={() => setMobileOpen(false)}>Conseils</Link>
+                <Link href="/conseils" className={`${styles.navLink} ${isActive('/conseils') ? styles.navLinkActive : ''}`} onClick={() => setMobileOpen(false)}>Conseils</Link>
               </li>
               <li className={styles.navItem}>
-                <Link href="/nous-joindre" className={styles.navLink} onClick={() => setMobileOpen(false)}>Nous joindre</Link>
+                <Link href="/nous-joindre" className={`${styles.navLink} ${isActive('/nous-joindre') ? styles.navLinkActive : ''}`} onClick={() => setMobileOpen(false)}>Nous joindre</Link>
               </li>
             </ul>
             <Link href="/prendre-rendez-vous" className={`btn btn-primary btn-sm ${styles.navCTA}`} onClick={() => setMobileOpen(false)}>

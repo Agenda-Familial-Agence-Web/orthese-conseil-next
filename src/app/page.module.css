@@ -2,14 +2,20 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--blue-deep) 0%, #0a4080 50%, var(--blue-primary) 100%);
-  background-image: url('/images/2082A-Boul-Industriel-Photo-1.jpg');
-  background-size: cover;
-  background-position: center;
+  background: var(--blue-deep);
   overflow: hidden;
   display: flex;
   align-items: center;
   clip-path: inset(0);
+}
+
+.heroBg {
+  position: absolute;
+  inset: -15% 0 0 0;
+  background-image: url('/images/2082A-Boul-Industriel-Photo-1.jpg');
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
 }
 
 .heroOverlay {

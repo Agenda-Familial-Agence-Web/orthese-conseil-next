@@ -4,6 +4,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SmoothScroll from '@/components/SmoothScroll';
 import CustomCursor from '@/components/CustomCursor';
+import BackToTop from '@/components/ui/BackToTop';
+import MobileCTABar from '@/components/ui/MobileCTABar';
+import ScrollProgress from '@/components/ui/ScrollProgress';
 
 export const metadata: Metadata = {
   title: {
@@ -30,8 +33,11 @@ export default function RootLayout({
         <SmoothScroll />
         <CustomCursor />
         <Header />
+        <ScrollProgress />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
+        <MobileCTABar />
       </body>
     </html>
   );
