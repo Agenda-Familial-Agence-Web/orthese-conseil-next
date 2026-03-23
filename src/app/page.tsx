@@ -45,58 +45,18 @@ const infoBoxes = [
   },
 ];
 
-const services = [
-  {
-    title: 'Évaluation Biomécanique',
-    description: 'La solution à vos douleurs commence par une bonne évaluation.',
-    href: '/nos-services/evaluation-biomecanique',
-    icon: <Activity size={32} color="var(--blue-primary)" />,
-  },
-  {
-    title: 'Orthèses Plantaires',
-    description: 'Orthèses sur mesure fabriquées directement dans notre clinique.',
-    href: '/nos-services/ortheses-plantaires',
-    icon: <Footprints size={32} color="var(--blue-primary)" />,
-  },
-  {
-    title: 'Orthèses de Genou',
-    description: 'Le soutien nécessaire pour retrouver votre mobilité en confiance.',
-    href: '/nos-services/orthese-de-genou',
-    icon: <ShieldPlus size={32} color="var(--blue-primary)" />,
-  },
-  {
-    title: 'Services Pédiatriques',
-    description: 'Solutions adaptées aux besoins spécifiques des tout-petits.',
-    href: '/nos-services/services-pediatriques',
-    icon: <Baby size={32} color="var(--blue-primary)" />,
-  },
-  {
-    title: 'Attelles & Poignet',
-    description: 'Favoriser la guérison et retrouver votre mobilité rapidement.',
-    href: '/nos-services/attelle-poignet',
-    icon: <Hand size={32} color="var(--blue-primary)" />,
-  },
-  {
-    title: 'Bas de Contention',
-    description: 'Vaste inventaire pour vos besoins de compression veineuse.',
-    href: '/nos-services/bas-de-contention',
-    icon: <Droplets size={32} color="var(--blue-primary)" />,
-  },
-  {
-    title: 'Chaussures sur Mesure',
-    description: 'Chaussures thérapeutiques conçues pour corriger la posture.',
-    href: '/nos-services/chaussures-sur-mesure',
-    icon: <Layers size={32} color="var(--blue-primary)" />,
-  },
-  {
-    title: 'TENS & Électrodes',
-    description: 'Neurostimulation électrique pour soulagement de la douleur.',
-    href: '/nos-services/tens-et-electrodes',
-    icon: <Zap size={32} color="var(--blue-primary)" />,
-  },
+const servicesList = [
+  { title: 'Évaluation Biomécanique', description: 'La solution à vos douleurs commence par une bonne évaluation.', href: '/nos-services/evaluation-biomecanique', icon: <Activity size={32} color="var(--blue-primary)" /> },
+  { title: 'Orthèses Plantaires', description: 'Orthèses sur mesure fabriquées directement dans notre clinique.', href: '/nos-services/ortheses-plantaires', icon: <Footprints size={32} color="var(--blue-primary)" /> },
+  { title: 'Orthèses de Genou', description: 'Le soutien nécessaire pour retrouver votre mobilité en confiance.', href: '/nos-services/orthese-de-genou', icon: <ShieldPlus size={32} color="var(--blue-primary)" /> },
+  { title: 'Services Pédiatriques', description: 'Solutions adaptées aux besoins spécifiques des tout-petits.', href: '/nos-services/services-pediatriques', icon: <Baby size={32} color="var(--blue-primary)" /> },
+  { title: 'Attelles & Poignet', description: 'Favoriser la guérison et retrouver votre mobilité rapidement.', href: '/nos-services/attelle-poignet', icon: <Hand size={32} color="var(--blue-primary)" /> },
+  { title: 'Bas de Contention', description: 'Vaste inventaire pour vos besoins de compression veineuse.', href: '/nos-services/bas-de-contention', icon: <Droplets size={32} color="var(--blue-primary)" /> },
+  { title: 'Chaussures sur Mesure', description: 'Chaussures thérapeutiques conçues pour corriger la posture.', href: '/nos-services/chaussures-sur-mesure', icon: <Layers size={32} color="var(--blue-primary)" /> },
+  { title: 'TENS & Électrodes', description: 'Neurostimulation électrique pour soulagement de la douleur.', href: '/nos-services/tens-et-electrodes', icon: <Zap size={32} color="var(--blue-primary)" /> },
 ];
 
-const reasons = [
+const reasonsList = [
   { num: '01', title: 'Service d\'expérience', text: 'Plus de 25 ans d\'expérience combinée dans le domaine de l\'orthèse.' },
   { num: '02', title: 'Service plus humain', text: 'Des orthésistes passionnés qui sauront vous mettre en confiance.' },
   { num: '03', title: 'Orthésistes certifiés', text: 'Membres de l\'AOPQ, du CCCOP et de l\'OTPQ.' },
@@ -203,7 +163,7 @@ export default function HomePage() {
       </section>
 
       {/* ========== ABOUT ========== */}
-      <section className={`section section-alt`}>
+      <section className="section section-alt">
         <div className="container">
           <div className={styles.aboutGrid}>
             <ScrollReveal direction="left">
@@ -250,7 +210,7 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
           <StaggerContainer className={styles.reasonsGrid} staggerDelay={0.08}>
-            {reasons.map((r) => (
+            {reasonsList.map((r) => (
               <StaggerItem key={r.num}>
                 <TiltCard className={styles.reasonCard} tiltAmount={4}>
                   <div className={styles.reasonNum}>{r.num}</div>
@@ -272,7 +232,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========== SERVICES (Bento Grid) ========== */}
+      {/* ========== SERVICES ========== */}
       <section className="section section-alt">
         <div className="container">
           <ScrollReveal>
@@ -282,7 +242,7 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
           <StaggerContainer className={styles.servicesGrid} staggerDelay={0.08}>
-            {services.map((s) => (
+            {servicesList.map((s) => (
               <StaggerItem key={s.href}>
                 <ServiceCard {...s} />
               </StaggerItem>

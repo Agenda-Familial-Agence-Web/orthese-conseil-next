@@ -1,103 +1,124 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
 import HeroBanner from '@/components/HeroBanner';
-import CTABanner from '@/components/CTABanner';
 import styles from '@/styles/inner.module.css';
 
-export const metadata: Metadata = { title: 'Demande de consultation' };
+export default function ConsultationPage() {
+  const [submitted, setSubmitted] = useState(false);
 
-export default function DemandeConsultationPage() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
     <>
       <HeroBanner
         title="Demande de consultation"
-        breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Demande de consultation' }]}
+        breadcrumbs={[{ label: 'Demande de consultation' }]}
       />
+
       <section className={styles.pageContent}>
-        <div className="container" style={{ maxWidth: 800 }}>
-          <div className={styles.contactCard}>
-            <div style={{ textAlign: 'center', marginBottom: 32 }}>
-              <h2>N&apos;attendez plus et retrouvez enfin votre confort !</h2>
-              <p style={{ marginTop: 12 }}>
-                Venir chez Orthèse Conseil, c&apos;est l&apos;assurance d&apos;un service hors du commun et d&apos;une qualité inégalée. Utilisez le formulaire suivant pour faire une demande d&apos;une première consultation.
-              </p>
+        <div className="container" style={{ maxWidth: 750 }}>
+          {submitted ? (
+            <div style={{ textAlign: 'center', padding: 60 }}>
+              <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--green-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green-accent)" strokeWidth="2.5"><path d="M20 6 9 17l-5-5" /></svg>
+              </div>
+              <h2>Demande envoyée!</h2>
+              <p style={{ marginTop: 12 }}>Nous vous contacterons dans les plus brefs délais pour planifier votre consultation.</p>
             </div>
-
-            <form>
-              <div className={styles.formRow}>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Prénom *</label>
-                  <input type="text" className={styles.formInput} required />
-                </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Nom *</label>
-                  <input type="text" className={styles.formInput} required />
-                </div>
-              </div>
-              <div className={styles.formRow}>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Téléphone *</label>
-                  <input type="tel" className={styles.formInput} required />
-                </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Courriel *</label>
-                  <input type="email" className={styles.formInput} required />
-                </div>
+          ) : (
+            <>
+              <div style={{ textAlign: 'center', marginBottom: 40 }}>
+                <h2>Formulaire de consultation</h2>
+                <p style={{ marginTop: 12 }}>Remplissez ce formulaire et nous vous contacterons pour planifier votre rendez-vous.</p>
               </div>
 
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Adresse postale</label>
-                <input type="text" className={styles.formInput} placeholder="Adresse" />
-              </div>
-              <div className={styles.formRow}>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Ville</label>
-                  <input type="text" className={styles.formInput} />
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20, background: 'var(--white)', borderRadius: 'var(--radius-xl)', padding: 40, boxShadow: 'var(--shadow-lg)' }}>
+                <div className={styles.formRow}>
+                  <div>
+                    <label className={styles.formLabel}>Prénom *</label>
+                    <input className={styles.formInput} type="text" required />
+                  </div>
+                  <div>
+                    <label className={styles.formLabel}>Nom *</label>
+                    <input className={styles.formInput} type="text" required />
+                  </div>
                 </div>
-                <div className={styles.formGroup}>
-                  <label className={styles.formLabel}>Province</label>
+
+                <div className={styles.formRow}>
+                  <div>
+                    <label className={styles.formLabel}>Téléphone *</label>
+                    <input className={styles.formInput} type="tel" required />
+                  </div>
+                  <div>
+                    <label className={styles.formLabel}>Courriel</label>
+                    <input className={styles.formInput} type="email" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className={styles.formLabel}>Adresse</label>
+                  <input className={styles.formInput} type="text" />
+                </div>
+
+                <div className={styles.formRow}>
+                  <div>
+                    <label className={styles.formLabel}>Ville</label>
+                    <input className={styles.formInput} type="text" />
+                  </div>
+                  <div>
+                    <label className={styles.formLabel}>Province</label>
+                    <select className={styles.formSelect}>
+                      <option value="QC">Québec</option>
+                      <option value="ON">Ontario</option>
+                      <option value="other">Autre</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className={styles.formLabel}>Code postal</label>
+                  <input className={styles.formInput} type="text" style={{ maxWidth: 200 }} />
+                </div>
+
+                <div>
+                  <label className={styles.formLabel}>Disponibilité</label>
+                  <div className={styles.checkboxGroup}>
+                    {['Matin', 'Après-midi', 'Soirée'].map((time) => (
+                      <label key={time} style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
+                        <input type="checkbox" value={time} style={{ width: 18, height: 18, accentColor: 'var(--blue-primary)' }} />
+                        <span>{time}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className={styles.formLabel}>Service souhaité</label>
                   <select className={styles.formSelect}>
-                    <option value="Quebec">Québec</option>
-                    <option value="Ontario">Ontario</option>
-                    <option value="Other">Autre</option>
+                    <option value="">Choisir un service</option>
+                    <option>Orthèses plantaires</option>
+                    <option>Évaluation biomécanique</option>
+                    <option>Appareillages</option>
+                    <option>Bas de contention</option>
+                    <option>Autre</option>
                   </select>
                 </div>
-              </div>
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Code postal</label>
-                <input type="text" className={styles.formInput} style={{ maxWidth: 200 }} />
-              </div>
 
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Quelles sont vos disponibilités? *</label>
-                <div className={styles.checkboxGroup}>
-                  <label className={styles.checkboxLabel}><input type="checkbox" /> Matin</label>
-                  <label className={styles.checkboxLabel}><input type="checkbox" /> Après-midi</label>
-                  <label className={styles.checkboxLabel}><input type="checkbox" /> Soir</label>
+                <div>
+                  <label className={styles.formLabel}>Description du problème</label>
+                  <textarea className={styles.formTextarea} rows={5} />
                 </div>
-              </div>
 
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Quel service avez-vous besoin? *</label>
-                <select className={styles.formSelect} required>
-                  <option value="">Choisissez s.v.p.</option>
-                  <option value="ortheses-plantaires">Orthèses plantaires</option>
-                  <option value="evaluation-biomecanique">Évaluation biomécanique</option>
-                  <option value="appareillages">Appareillages orthopédiques</option>
-                  <option value="bas-contention">Bas de contention</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Décrivez vos problèmes et besoins *</label>
-                <textarea className={styles.formTextarea} required rows={5}></textarea>
-              </div>
-
-              <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>
-                Envoyer la demande de consultation
-              </button>
-            </form>
-          </div>
+                <button type="submit" className="btn btn-green" style={{ alignSelf: 'flex-start' }}>
+                  Envoyer la demande
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </section>
     </>

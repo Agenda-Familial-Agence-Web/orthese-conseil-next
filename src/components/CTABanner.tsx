@@ -6,7 +6,6 @@ interface CTABannerProps {
   subtitle?: string;
   buttonText?: string;
   buttonHref?: string;
-  phone?: string;
 }
 
 export default function CTABanner({

@@ -1,47 +1,64 @@
-"use client";
+'use client';
 
-interface TestimonialCardProps {
-  name: string;
-  rating: number;
-  text: string;
-  source: string;
-}
+import type { Testimonial } from '@/data/testimonials';
 
-export default function TestimonialCard({
-  name,
-  rating,
-  text,
-}: TestimonialCardProps) {
+export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="bg-white rounded-2xl p-6 min-w-[320px] max-w-[400px] shrink-0 border border-gray-100 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-t-3 hover:border-t-primary hover:shadow-md group">
-      {/* Stars */}
-      <div className="flex gap-0.5 mb-3">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <span
+    <div
+      style={{
+        background: 'var(--white)',
+        borderRadius: 'var(--radius-lg)',
+        padding: '28px 24px',
+        minWidth: 320,
+        maxWidth: 380,
+        boxShadow: 'var(--shadow-card)',
+        border: '1px solid var(--gray-100)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 12,
+        transition: 'transform var(--transition-base)',
+        flexShrink: 0,
+      }}
+    >
+      <div style={{ display: 'flex', gap: 3 }}>
+        {Array.from({ length: testimonial.rating }).map((_, i) => (
+          <svg
             key={i}
-            className={`text-lg ${i < rating ? "text-[#F59E0B]" : "text-gray-200"}`}
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="#f59e0b"
             style={{
-              animation: `starPop 0.3s ease-out ${i * 0.1}s both`,
+              animation: `starPop 0.3s ease ${i * 0.08}s both`,
             }}
           >
-            ★
-          </span>
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
         ))}
       </div>
-
-      {/* Quote text */}
-      <p className="text-text-primary text-sm leading-relaxed line-clamp-4 whitespace-normal mb-4">
-        &ldquo;{text}&rdquo;
+      <p
+        style={{
+          color: 'var(--text-secondary)',
+          fontSize: '0.95rem',
+          lineHeight: 1.7,
+          display: '-webkit-box',
+          WebkitLineClamp: 4,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+          flexGrow: 1,
+        }}
+      >
+        &ldquo;{testimonial.text}&rdquo;
       </p>
-
-      {/* Author */}
-      <div className="flex items-center justify-between">
-        <span className="font-semibold text-sm text-text-primary">{name}</span>
-        <span className="text-text-muted text-xs flex items-center gap-1">
-          Avis Google vérifié
-          <svg className="w-3.5 h-3.5 text-[#F59E0B]" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 4 }}>
+        <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: '0.95rem', color: 'var(--text-primary)' }}>
+          {testimonial.name}
+        </span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green-accent)" strokeWidth="2.5">
+            <path d="M20 6 9 17l-5-5" />
           </svg>
+          Avis Google vérifié
         </span>
       </div>
     </div>

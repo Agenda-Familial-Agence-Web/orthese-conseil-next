@@ -54,7 +54,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Bar */}
       <div className={styles.topBar}>
         <div className={`container ${styles.topBarInner}`}>
           <div className={styles.topBarLeft}>
@@ -76,7 +75,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main Navigation */}
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={`container ${styles.headerInner}`}>
           <Link href="/" className={styles.logo}>
@@ -95,7 +93,6 @@ export default function Header() {
                 <Link href="/" className={`${styles.navLink} ${isActive('/') ? styles.navLinkActive : ''}`} onClick={() => setMobileOpen(false)}>Accueil</Link>
               </li>
 
-              {/* About Dropdown */}
               <li
                 className={`${styles.navItem} ${styles.hasDropdown}`}
                 onMouseEnter={() => setActiveDropdown('about')}
@@ -116,7 +113,6 @@ export default function Header() {
                 </ul>
               </li>
 
-              {/* Services Dropdown */}
               <li
                 className={`${styles.navItem} ${styles.hasDropdown}`}
                 onMouseEnter={() => setActiveDropdown('services')}
@@ -152,7 +148,6 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Hamburger */}
           <button
             className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerOpen : ''}`}
             onClick={() => setMobileOpen(!mobileOpen)}

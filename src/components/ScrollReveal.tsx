@@ -50,7 +50,6 @@ export default function ScrollReveal({
   );
 }
 
-/* Staggered children wrapper */
 export function StaggerContainer({
   children,
   className,
