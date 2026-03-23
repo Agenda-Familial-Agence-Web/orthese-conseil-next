@@ -39,7 +39,7 @@
 .about {
   font-size: 0.9rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .linkList {
@@ -50,7 +50,7 @@
 
 .link {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   transition: all var(--transition-fast);
   text-decoration: none;
   display: flex;
@@ -92,7 +92,7 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .addressItem svg {
@@ -102,7 +102,7 @@
 }
 
 .addressItem a {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: color var(--transition-fast);
 }

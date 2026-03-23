@@ -25,7 +25,7 @@ export default function CTABanner({
           <Link href={buttonHref} className="btn btn-green btn-lg">
             {buttonText}
           </Link>
-          <Link href="/nous-joindre" className="btn btn-secondary btn-lg" style={{ borderColor: 'white', color: 'white' }}>
+          <Link href="/nous-joindre" className={`btn btn-lg ${styles.outlineBtn}`}>
             Nous joindre
           </Link>
         </div>
