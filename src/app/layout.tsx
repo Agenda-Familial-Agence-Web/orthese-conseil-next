@@ -3,7 +3,6 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SmoothScroll from '@/components/SmoothScroll';
-import CustomCursor from '@/components/CustomCursor';
 import BackToTop from '@/components/ui/BackToTop';
 import MobileCTABar from '@/components/ui/MobileCTABar';
 import ScrollProgress from '@/components/ui/ScrollProgress';
@@ -31,7 +30,6 @@ export default function RootLayout({
     <html lang="fr">
       <body>
         <SmoothScroll />
-        <CustomCursor />
         <Header />
         <ScrollProgress />
         <main>{children}</main>
